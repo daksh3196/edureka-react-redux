@@ -10,6 +10,54 @@ body{
 .header{
   padding-top: 20px;
 }
-.header > h1{
+h1{
+  padding-top: 10px;
   margin-top: 0px;
+}
+
+.input-div{
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="text"]{
+  width: 400px;
+  height: 44px;
+  padding: 20px 10px 20px 10px;
+  box-sizing: border-box;
+  border: 0px solid; 
+  border-radius: 5px 0px 0px 5px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+button{
+  width: 70px;
+  height: 47px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: cadetblue;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+button:hover{
+  background-color:azure;
+  color: cadetblue;
+}
+.checked{
+  text-decoration: line-through;
+}
+.list-wrapper-parent{
+  margin: 20px;
+}
+input[type='checkbox']{
+  height: 20px;
+  width: 20px;
+}
+.itemm{
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.checked{
+  text-decoration: line-through solid whitesmoke 2px;
 }
