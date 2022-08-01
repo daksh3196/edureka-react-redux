@@ -1,13 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Welcome from "./Components/Welcome";
 import HomePage from "./Components/HomePage";
+import ToDo from './Components/ToDo';
 
 function App() {
   return (
     <div className="App">
-      <Welcome name="React, Redux" />
       <HomePage name="Daksh" />
+      <ToDo/ >
     </div>
   );
 }
