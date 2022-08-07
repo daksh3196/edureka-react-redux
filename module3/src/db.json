@@ -1,29 +1,43 @@
 {
-    "courses" : [
-        {
-            "id" : 1,
-            "courseName" : "Frontend with React",
-            "author" : "Daksh"
-        },
-        {
-            "id" : 2,
-            "courseName" : "Backedn with Node.Js",
-            "author" : "Daksh"
-        },
-        {
-            "id" : 3,
-            "courseName" : "Full Stack - MERN Stack",
-            "author" : "Daksh"
-        }
-    ],
-    "users" : [
-        {
-            "email" : "abc@xyz.com",
-            "password" : "pass1"       
-        },
-        {
-            "email" : "def@xyz.com",
-            "password" : "pass2"       
-        }
-    ]
+  "courses": [
+    {
+      "id": 1,
+      "courseName": "Frontend with React",
+      "author": "Daksh",
+      "price": 15000
+    },
+    {
+      "id": 2,
+      "courseName": "Backedn with Node.Js",
+      "author": "Daksh",
+      "price": 12000
+    },
+    {
+      "id": 3,
+      "courseName": "Full Stack - MERN Stack",
+      "author": "Daksh",
+      "price": 20000
+    }
+  ],
+  "users": [
+    {
+      "email": "abc@xyz.com",
+      "password": "pass1"
+    },
+    {
+      "email": "def@xyz.com",
+      "password": "pass2"
+    }
+  ],
+  "enquiries": [
+    {
+      "linkedCourse": {
+        "id": 1,
+        "name": "Frontend with React"
+      },
+      "email": "daksh@gmail.com",
+      "enquiry": "TEST",
+      "id": 1
+    }
+  ]
 }

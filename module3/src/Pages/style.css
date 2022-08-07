@@ -1,0 +1,137 @@
+.course-items-div{
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: black;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.course-item{
+    height: 300px;
+    width: 200px;
+    background: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform .2s;
+}
+/* .course-item:hover{
+    transform: scale(1.2);
+} */
+
+.course-head-image{
+    height: 50%;
+    border-bottom: 2px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.image{
+    height: 150px;
+    width: 200px;
+}
+.course-title{
+    font-size: 20px;
+    padding: 5px;
+    font-weight: 400;
+}
+.course-auth{
+    font-size: 16px;
+    padding: 5px;
+    font-weight: 300;
+}
+.course-price{
+    font-size: 18px;
+    padding: 5px;
+    font-weight: 400;
+}
+table{
+    margin: 20px;
+    border: 2px solid whitesmoke;
+}
+th{
+    padding: 10px;
+    border: 1px solid white;
+}
+td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.button {
+    font-size: 14px;
+    padding: 5px;
+    color: #282c34;
+    border: 1px solid white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: white;
+}
+.button:hover{
+    background: #282c34;
+    color: white ;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #282c34;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

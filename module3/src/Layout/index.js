@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Layout = (props) => {
-  console.log(props);
   return (
     <>
       <header
@@ -17,7 +16,7 @@ const Layout = (props) => {
       >
         <div>
           <Link
-            to="profile"
+            to="/courses"
             style={{
               textDecoration: "auto",
               padding: 10,
@@ -25,10 +24,10 @@ const Layout = (props) => {
               border: "1px solid",
             }}
           >
-            Profile
+            Courses
           </Link>
           <Link
-            to="dashboard"
+            to="/enquiries"
             style={{
               textDecoration: "auto",
               padding: 10,
@@ -36,7 +35,7 @@ const Layout = (props) => {
               border: "1px solid",
             }}
           >
-            Dashboard
+            Enquiries
           </Link>
         </div>
       </header>
