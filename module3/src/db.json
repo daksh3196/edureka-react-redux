@@ -1,0 +1,29 @@
+{
+    "courses" : [
+        {
+            "id" : 1,
+            "courseName" : "Frontend with React",
+            "author" : "Daksh"
+        },
+        {
+            "id" : 2,
+            "courseName" : "Backedn with Node.Js",
+            "author" : "Daksh"
+        },
+        {
+            "id" : 3,
+            "courseName" : "Full Stack - MERN Stack",
+            "author" : "Daksh"
+        }
+    ],
+    "users" : [
+        {
+            "email" : "abc@xyz.com",
+            "password" : "pass1"       
+        },
+        {
+            "email" : "def@xyz.com",
+            "password" : "pass2"       
+        }
+    ]
+}
