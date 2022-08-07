@@ -36,7 +36,7 @@ class ToDo extends Component {
 
         const renderList = this.state.toDoList.map((item,idx)=>(
             <div className='list-item' key={item.id}>
-                <input type='checkbox' checked={item.isDone} onChange={ () => checkTodo(item.id)} ></input>
+                <input type='checkbox' checked={item.isDone} onChange={ () => checkTodo(item.id)} disabled={item.isDone} ></input>
                 <span className={`${ item.isDone ? "itemm checked" : "itemm" }`}>{item.value}</span>
 
                 {/* {
@@ -51,7 +51,7 @@ class ToDo extends Component {
         return (
             <>
                 <h4> Enter a to-do item to add to the master list below.</h4>
-                <h5> Check from the box if you have completed.</h5>
+                <h5> Check from the boxif you have completed.</h5>
 
                 <div className='input-div'>
                     <input placeholder="Enter a task..." type="text" value={this.state.tempTodo} onChange={this.textOnChange} ></input>
