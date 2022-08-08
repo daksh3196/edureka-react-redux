@@ -38,18 +38,6 @@ const Layout = (props) => {
           </Link>
           <Link
             className="logout-div"
-            to="/login"
-            style={{
-              textDecoration: "auto",
-              padding: 10,
-              color: "#db7093",
-              border: "1px solid",
-            }}
-          >
-            Login
-          </Link>
-          <Link
-            className="logout-div"
             to="/courses"
             style={{
               textDecoration: "auto",
@@ -86,7 +74,20 @@ const Layout = (props) => {
             >
               Logout
             </div>
-          ) : null}
+          ) : (
+            <Link
+              className="logout-div"
+              to="/login"
+              style={{
+                textDecoration: "auto",
+                padding: 10,
+                color: "#db7093",
+                border: "1px solid",
+              }}
+            >
+              Login
+            </Link>
+          )}
         </div>
       </header>
       <section style={{ height: "80vh" }}>{props.children}</section>

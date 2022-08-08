@@ -3,10 +3,13 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../Layout';
+import { connect, useDispatch } from 'react-redux';
 import './style.css';
+import {getCoursesByApi} from '../Redux/actions'
 import image from '../head.jpg';
 
-const Profile = () => {
+const Profile = (props) => {
+    const dispatch = useDispatch();
     const [courseList, setCourseList] = useState(null);
     const [email, setEmail] = useState(null);
     const [enquiry, setEnquiry] = useState(null);
@@ -18,12 +21,11 @@ const Profile = () => {
         if(temp && temp!=={}){
             setLinkCourse({ "id" : temp.id, "name" : temp.courseName });
         }
-    },[temp])
+    },[temp]);
 
-    const tempFunc = (e, item) => {
-        console.log("event", e);
-        console.log(item)
-    }
+    // useEffect(()=>{
+    //     dis
+    // },[])
 
     const handleEmailChange = (e) =>{
        setEmail(e.target.value);
@@ -35,6 +37,7 @@ const Profile = () => {
 
     const btnClick = async (e) => {
         e.preventDefault();
+        dispatch(getCoursesByApi);
         if(email && enquiry){
             const res = await fetch("http://localhost:6700/enquiries", {
                 method: "POST",
@@ -125,4 +128,17 @@ const Profile = () => {
     )
 }
 
+const mapStateToProps = (state) => {
+  return {
+    courses: state.CourseReducer.courses,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    callForCourses: () => dispatch(getCoursesByApi()),
+  }
+}
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 export default Profile;

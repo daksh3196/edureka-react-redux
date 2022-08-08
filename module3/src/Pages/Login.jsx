@@ -8,8 +8,8 @@ import './Login.css'
 
 const Login = () => {
     const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('test@gmail.com');
+    const [password, setPassword] = useState('testpass');
     const [error, setError] = useState(null);
 
     const isAuthenticated = !!Cookies.get("token");
@@ -42,6 +42,7 @@ const Login = () => {
 
         if(res.status === 200){
             Cookies.set("token", responseData.accessToken);
+            // Cookies.set("user", JSON.parse(responseData))
             history.push('/courses')
         } else{
             setError(res.json().message)
@@ -53,13 +54,10 @@ const Login = () => {
                 <h3> Login </h3>
                 <form>
                     {error ? error : <></>}
-                    <input type="text" name="email" placeholder='Enter your email address' onChange={handleEmailChange} />
-                    <input type="password" name="password" placeholder='Enter your associated password' onChange={handlePassChange} />
+                    <input type="text" name="email" value={email} placeholder='Enter your email address' onChange={handleEmailChange} />
+                    <input type="password" name="password" value={password} placeholder='Enter your associated password' onChange={handlePassChange} />
                     <button onClick={btnClick}> Login</button>
                 </form>
-                <div>
-                    Please login using the Email : test@gmail.com and Password: testpass 
-                </div>
             </div>
         </Layout>
     )
