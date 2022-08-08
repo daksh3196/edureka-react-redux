@@ -1,0 +1,6 @@
+Running Frontend
+>> npm start
+
+Running Backend server
+>> cd src && json-server --watch db.json -m ../node_modules/json-server-auth --port 6700
+

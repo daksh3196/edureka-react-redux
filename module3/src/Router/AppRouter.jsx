@@ -6,19 +6,21 @@ import Profile from '../Pages/Profile';
 import ErrorPage from '../Pages/ErrorPage';
 import Layout from '../Layout';
 import Enquiries from '../Pages/Enquiries';
+import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => {
     return (
         <>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" component={Profile} exact />
-                    <Route path="/enquiries" component={Enquiries} />
+                    <Route path="/" component={Login} exact />
+                    <Route path="/login" component={Login} />
+                    <PrivateRoute path="/enquiries" component={Enquiries} />
                     {/* <Route path="/dashboard/" component={Dashboard} /> */}
-                    <Route path="/course/:id" component={Dashboard} />
-                    <Route path="/courses" component={Profile} />
-                    <Route path="/home" component={Layout} />
-                    <Route component={ErrorPage} />
+                    <PrivateRoute path="/course/:id" component={Dashboard} />
+                    <PrivateRoute path="/courses" component={Profile} />
+                    <PrivateRoute path="/home" component={Layout} />
+                    <PrivateRoute component={ErrorPage} />
                 </Switch>
             </BrowserRouter>
         </>

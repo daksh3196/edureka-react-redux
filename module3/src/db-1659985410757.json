@@ -1,18 +1,4 @@
 {
-  "users": [
-    {
-      "email": "daksh@gmail.com",
-      "password": "$2a$10$tJll8wvGleMNWEx0v9W9lOJMKFVQ9ng6BEWS5cpccvBDxWfh14Xjm",
-      "name": "Daksh Taneja",
-      "age": 25,
-      "id": 1
-    },
-    {
-      "email": "test@gmail.com",
-      "password": "$2a$10$/CNrA7cEBaG9Akfdku4qveXjxWxeGj4alne5GUoXQ2mL2cht/xfFG",
-      "id": 2
-    }
-  ],
   "courses": [
     {
       "id": 1,
@@ -31,6 +17,20 @@
       "courseName": "Full Stack - MERN Stack",
       "author": "Daksh",
       "price": 20000
+    }
+  ],
+  "users": [
+    {
+      "email": "abc@xyz.com",
+      "password": "pass1",
+      "name": "ABC",
+      "age": 21
+    },
+    {
+      "email": "def@xyz.com",
+      "password": "pass2",
+      "name": "DEF",
+      "age": 21
     }
   ],
   "enquiries": [

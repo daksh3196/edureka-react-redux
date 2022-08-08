@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Layout = (props) => {
+  const history = useHistory();
+  const accessToken = Cookies.get("token");
+  const isAuthenticated = !!accessToken;
+
+  const handleLogOut = () => {
+    Cookies.remove("token");
+    history.push("/");
+  };
   return (
     <>
       <header
@@ -14,8 +23,33 @@ const Layout = (props) => {
           width: "100vw",
         }}
       >
-        <div>
+        <div style={{ display: "flex" }}>
           <Link
+            className="logout-div"
+            to="/"
+            style={{
+              textDecoration: "auto",
+              padding: 10,
+              color: "#db7093",
+              border: "1px solid",
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            className="logout-div"
+            to="/login"
+            style={{
+              textDecoration: "auto",
+              padding: 10,
+              color: "#db7093",
+              border: "1px solid",
+            }}
+          >
+            Login
+          </Link>
+          <Link
+            className="logout-div"
             to="/courses"
             style={{
               textDecoration: "auto",
@@ -27,6 +61,7 @@ const Layout = (props) => {
             Courses
           </Link>
           <Link
+            className="logout-div"
             to="/enquiries"
             style={{
               textDecoration: "auto",
@@ -37,6 +72,21 @@ const Layout = (props) => {
           >
             Enquiries
           </Link>
+          {isAuthenticated ? (
+            <div
+              className="logout-div"
+              onClick={handleLogOut}
+              style={{
+                textDecoration: "auto",
+                padding: 10,
+                color: "#db7093",
+                border: "1px solid",
+                pointerEvents: "all",
+              }}
+            >
+              Logout
+            </div>
+          ) : null}
         </div>
       </header>
       <section style={{ height: "80vh" }}>{props.children}</section>

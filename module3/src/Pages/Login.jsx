@@ -1,14 +1,21 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import Layout from '../Layout';
+import Cookies from 'js-cookie';
 import './Login.css'
 
 const Login = () => {
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+
+    const isAuthenticated = !!Cookies.get("token");
+    if (isAuthenticated) {
+      history.push("/courses");
+    }
 
     const handleEmailChange = (e) =>{
        setEmail(e.target.value);
@@ -20,7 +27,7 @@ const Login = () => {
 
     const btnClick = async (e) => {
         e.preventDefault();
-        const res = await fetch("https://webmaster-fake-api.herokuapp.com/auth/login", {
+        const res = await fetch("http://localhost:6700/login", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -30,10 +37,12 @@ const Login = () => {
                 password: password
             }),
         })
-        console.log(await res.json());
+        const responseData = await res.json();
+        console.log(responseData);
 
         if(res.status === 200){
-
+            Cookies.set("token", responseData.accessToken);
+            history.push('/courses')
         } else{
             setError(res.json().message)
         }
@@ -48,6 +57,9 @@ const Login = () => {
                     <input type="password" name="password" placeholder='Enter your associated password' onChange={handlePassChange} />
                     <button onClick={btnClick}> Login</button>
                 </form>
+                <div>
+                    Please login using the Email : test@gmail.com and Password: testpass 
+                </div>
             </div>
         </Layout>
     )
