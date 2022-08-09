@@ -45,21 +45,12 @@
     },
     {
       "linkedCourse": {
-        "id": 2,
+        "id": "2",
         "name": "Backedn with Node.Js"
       },
-      "email": "hello",
+      "email": "test@test.com",
       "enquiry": "hello",
       "id": 2
-    },
-    {
-      "linkedCourse": {
-        "id": 1,
-        "name": "Frontend with React"
-      },
-      "email": "sayushi720@gmail.com",
-      "enquiry": "TEST TEST",
-      "id": 3
     }
   ]
 }

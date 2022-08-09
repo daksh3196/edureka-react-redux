@@ -90,8 +90,12 @@ const Layout = (props) => {
           )}
         </div>
       </header>
-      <section style={{ height: "80vh" }}>{props.children}</section>
-      <footer style={{ height: "10vh" }}>&copy; Daksh 2022</footer>
+      <section style={{ height: "80vh", width: "100vw", overflow: "auto" }}>
+        {props.children}
+      </section>
+      <footer style={{ height: "10vh", display: "flex", alignItems: "center" }}>
+        &copy; Daksh 2022
+      </footer>
     </>
   );
 };

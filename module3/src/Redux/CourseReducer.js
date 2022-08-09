@@ -1,16 +1,16 @@
 import { GET_COURSES } from "./Type";
+import { combineReducers } from "redux";
 
-const initialState = {
-  courses: [],
-};
-
-const CourseReducer = (state = initialState, action) => {
+const courses = (state = null, action) => {
   switch (action.type) {
     case GET_COURSES:
+      state = action.payload;
       return state;
     default:
       return state;
   }
 };
 
-export default CourseReducer;
+export default combineReducers({
+  courses,
+});

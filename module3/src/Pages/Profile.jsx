@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../Layout';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import './style.css';
 import {getCoursesByApi} from '../Redux/actions'
 import image from '../head.jpg';
@@ -17,15 +17,25 @@ const Profile = (props) => {
     const [temp, setTemp] = useState({});
     const [linkCourse, setLinkCourse] = useState(null);
 
+    const { courses } = useSelector((state) => ({
+        courses: state?.CourseReducer?.courses
+    }));
+
+    useEffect(()=>{
+        if(courses?.length > 0){
+            setCourseList(courses);
+        }
+    },[courses])
+
     useEffect(()=>{
         if(temp && temp!=={}){
             setLinkCourse({ "id" : temp.id, "name" : temp.courseName });
         }
     },[temp]);
 
-    // useEffect(()=>{
-    //     dis
-    // },[])
+    useEffect(()=>{
+        dispatch(getCoursesByApi());
+    },[]);
 
     const handleEmailChange = (e) =>{
        setEmail(e.target.value);
@@ -37,7 +47,6 @@ const Profile = (props) => {
 
     const btnClick = async (e) => {
         e.preventDefault();
-        dispatch(getCoursesByApi);
         if(email && enquiry){
             const res = await fetch("http://localhost:6700/enquiries", {
                 method: "POST",
@@ -59,16 +68,16 @@ const Profile = (props) => {
         }
     }
 
-    useEffect(()=>{
-        const res = fetch("http://localhost:6700/courses", {
-            method: "GET"
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data);
-            setCourseList(data);
-        });
-    },[]);
+    // useEffect(()=>{
+    //     const res = fetch("http://localhost:6700/courses", {
+    //         method: "GET"
+    //     })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //         setCourseList(data);
+    //     });
+    // },[]);
 
 
     return (
@@ -83,12 +92,12 @@ const Profile = (props) => {
                         {
                             courseList?.map((item, idx) => {
                                 return (
-                                    <div className='course-item'  >
+                                    <div className='course-item' key={idx}>
                                         <div className='course-head-image'>
                                             <img src={image} className="image" alt="temp-img" />
                                         </div>
                                         <div className='course-title'>
-                                            <Link key={idx} to={`course/${item.id}`} >{item.courseName} </Link>
+                                            <Link to={`course/${item.id}`} >{item.courseName} </Link>
                                         </div>
                                         <div className='course-auth'>
                                             {item.author}
@@ -97,7 +106,7 @@ const Profile = (props) => {
                                             {item.price}
                                         </div>
                                         <div className='course-enquire-form' onClick= {() => setTemp(item)}>
-                                            <a class="button" href="#popup1"> Tap to Enquire </a>
+                                            <a className="button" href="#popup1"> Tap to Enquire </a>
                                         </div>
                                     </div>
                                 )
@@ -108,11 +117,11 @@ const Profile = (props) => {
             </div>
 
 
-            <div id="popup1" class="overlay">
-                <div class="popup">
+            <div id="popup1" className="overlay">
+                <div className="popup">
                     <h2>Enquiry Form</h2>
-                        <a class="close" href="#">&times;</a>
-                        <div class="content">
+                        <a className="close" href="#">&times;</a>
+                        <div className="content">
                             <div style={{ color: 'black' }}> Enquiry for Product : {temp?.courseName ?? ""} by {temp?.author ?? ""} </div>
                             <form>
                                 {error ? error : <></>}
