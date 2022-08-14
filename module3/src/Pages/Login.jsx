@@ -14,7 +14,7 @@ const Login = () => {
 
     const isAuthenticated = !!Cookies.get("token");
     if (isAuthenticated) {
-      history.push("/courses");
+      history.push("/foods");
     }
 
     const handleEmailChange = (e) =>{
@@ -43,7 +43,7 @@ const Login = () => {
         if(res.status === 200){
             Cookies.set("token", responseData.accessToken);
             // Cookies.set("user", JSON.parse(responseData))
-            history.push('/courses')
+            history.push('/foods')
         } else{
             setError(res.json().message)
         }
@@ -52,6 +52,7 @@ const Login = () => {
         <Layout>
             <div className='form-div'>
                 <h3> Login </h3>
+                <h6> Login using test@gmail.com. passowrd: testpass</h6>
                 <form>
                     {error ? error : <></>}
                     <input type="text" name="email" value={email} placeholder='Enter your email address' onChange={handleEmailChange} />

@@ -5,27 +5,28 @@ import { Link } from 'react-router-dom';
 import Layout from '../Layout';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import './style.css';
-import {getCoursesByApi} from '../Redux/actions'
+import {getCoursesByApi, getFoodsByApi} from '../Redux/actions'
 import image from '../head.jpg';
 
 const Profile = (props) => {
     const dispatch = useDispatch();
-    const [courseList, setCourseList] = useState(null);
+    const [foodList, setFoodList] = useState(null);
     const [email, setEmail] = useState(null);
     const [enquiry, setEnquiry] = useState(null);
     const [error, setError] = useState(null);
     const [temp, setTemp] = useState({});
     const [linkCourse, setLinkCourse] = useState(null);
 
-    const { courses } = useSelector((state) => ({
-        courses: state?.CourseReducer?.courses
+    const { courses, foods } = useSelector((state) => ({
+        courses: state?.CourseReducer?.courses,
+        foods: state?.CourseReducer?.foods
     }));
 
     useEffect(()=>{
-        if(courses?.length > 0){
-            setCourseList(courses);
+        if(foods?.length > 0){
+            setFoodList(foods);
         }
-    },[courses])
+    },[foods])
 
     useEffect(()=>{
         if(temp && temp!=={}){
@@ -34,7 +35,8 @@ const Profile = (props) => {
     },[temp]);
 
     useEffect(()=>{
-        dispatch(getCoursesByApi());
+        // dispatch(getCoursesByApi());
+        dispatch(getFoodsByApi());
     },[]);
 
     const handleEmailChange = (e) =>{
@@ -68,45 +70,34 @@ const Profile = (props) => {
         }
     }
 
-    // useEffect(()=>{
-    //     const res = fetch("http://localhost:6700/courses", {
-    //         method: "GET"
-    //     })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log(data);
-    //         setCourseList(data);
-    //     });
-    // },[]);
-
 
     return (
         <Layout>
             <h3>
-                Courses
+                Food Store
             </h3>
             <div className='courses-wrapper'>
                 { 
-                    courseList?.length > 0 &&
+                    foodList?.length > 0 &&
                     <div className='course-items-div' >
                         {
-                            courseList?.map((item, idx) => {
+                            foodList?.map((item, idx) => {
                                 return (
                                     <div className='course-item' key={idx}>
                                         <div className='course-head-image'>
-                                            <img src={image} className="image" alt="temp-img" />
+                                            <img src={item.recipe_img} className="image" alt="temp-img" />
                                         </div>
                                         <div className='course-title'>
-                                            <Link to={`course/${item.id}`} >{item.courseName} </Link>
+                                            <Link className="linkk" to={`food/${item.id}`} >{item.recipe_name} </Link>
                                         </div>
                                         <div className='course-auth'>
-                                            {item.author}
+                                            Serves {item.servings}
                                         </div>
                                         <div className='course-price'>
-                                            {item.price}
+                                            Cooking time {item.cooking_time}
                                         </div>
                                         <div className='course-enquire-form' onClick= {() => setTemp(item)}>
-                                            <a className="button" href="#popup1"> Tap to Enquire </a>
+                                            <Link className="linkk" to={`food/${item.id}`} >Tap for more details</Link>
                                         </div>
                                     </div>
                                 )
