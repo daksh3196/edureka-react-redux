@@ -14,7 +14,7 @@ const Login = () => {
 
     const isAuthenticated = !!Cookies.get("token");
     if (isAuthenticated) {
-      history.push("/foods");
+      history.push("/courses");
     }
 
     const handleEmailChange = (e) =>{
@@ -43,7 +43,7 @@ const Login = () => {
         if(res.status === 200){
             Cookies.set("token", responseData.accessToken);
             // Cookies.set("user", JSON.parse(responseData))
-            history.push('/foods')
+            history.push('/courses')
         } else{
             setError(res.json().message)
         }

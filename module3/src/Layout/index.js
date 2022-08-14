@@ -38,7 +38,7 @@ const Layout = (props) => {
           </Link>
           <Link
             className="logout-div"
-            to="/foods"
+            to="/courses"
             style={{
               textDecoration: "auto",
               padding: 10,
@@ -46,9 +46,9 @@ const Layout = (props) => {
               border: "1px solid",
             }}
           >
-            Food List
+            Courses List
           </Link>
-          {/* <Link
+          <Link
             className="logout-div"
             to="/enquiries"
             style={{
@@ -59,7 +59,7 @@ const Layout = (props) => {
             }}
           >
             Enquiries
-          </Link> */}
+          </Link>
           {isAuthenticated ? (
             <div
               className="logout-div"

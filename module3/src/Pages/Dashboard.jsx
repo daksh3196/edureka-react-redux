@@ -15,7 +15,7 @@ const Dashboard = (props) => {
         if(props.match.params.id){
             console.log(props.match.params.id);
             setId(props.match.params.id);
-            const res = fetch(`http://localhost:6700/foods/${props.match.params.id}`, {
+            const res = fetch(`http://localhost:6700/courses/${props.match.params.id}`, {
             method: "GET"
         })
         .then((res) => res.json())
@@ -32,9 +32,9 @@ const Dashboard = (props) => {
                 Course Details
             </h3>
             <h4>
-                Recipe Id : {id} for {data?.recipe_name ?? ""}
+                Course Id : {id} for {data?.courseName ?? ""}
             </h4>
-            { isSet &&
+            {/* { isSet &&
             <Container>
                 <Row>
                     <Col>
@@ -65,7 +65,7 @@ const Dashboard = (props) => {
                     </Col>
                 </Row>
             </Container>
-}
+} */}
         </Layout>
             
     )

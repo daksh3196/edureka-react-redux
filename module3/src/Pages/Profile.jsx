@@ -10,23 +10,22 @@ import image from '../head.jpg';
 
 const Profile = (props) => {
     const dispatch = useDispatch();
-    const [foodList, setFoodList] = useState(null);
+    const [courseList, setCourseList] = useState(null);
     const [email, setEmail] = useState(null);
     const [enquiry, setEnquiry] = useState(null);
     const [error, setError] = useState(null);
     const [temp, setTemp] = useState({});
     const [linkCourse, setLinkCourse] = useState(null);
 
-    const { courses, foods } = useSelector((state) => ({
-        courses: state?.CourseReducer?.courses,
-        foods: state?.CourseReducer?.foods
+    const { courses } = useSelector((state) => ({
+        courses: state?.CourseReducer?.courses
     }));
 
     useEffect(()=>{
-        if(foods?.length > 0){
-            setFoodList(foods);
+        if(courses?.length > 0){
+            setCourseList(courses);
         }
-    },[foods])
+    },[courses])
 
     useEffect(()=>{
         if(temp && temp!=={}){
@@ -35,8 +34,8 @@ const Profile = (props) => {
     },[temp]);
 
     useEffect(()=>{
-        // dispatch(getCoursesByApi());
-        dispatch(getFoodsByApi());
+        dispatch(getCoursesByApi());
+        // dispatch(getFoodsByApi());
     },[]);
 
     const handleEmailChange = (e) =>{
@@ -74,30 +73,30 @@ const Profile = (props) => {
     return (
         <Layout>
             <h3>
-                Food Store
+                Courses
             </h3>
             <div className='courses-wrapper'>
                 { 
-                    foodList?.length > 0 &&
+                    courseList?.length > 0 &&
                     <div className='course-items-div' >
                         {
-                            foodList?.map((item, idx) => {
+                            courseList?.map((item, idx) => {
                                 return (
                                     <div className='course-item' key={idx}>
                                         <div className='course-head-image'>
-                                            <img src={item.recipe_img} className="image" alt="temp-img" />
+                                            <img src={image} className="image" alt="temp-img" />
                                         </div>
                                         <div className='course-title'>
-                                            <Link className="linkk" to={`food/${item.id}`} >{item.recipe_name} </Link>
+                                            <Link to={`course/${item.id}`} >{item.courseName} </Link>
                                         </div>
                                         <div className='course-auth'>
-                                            Serves {item.servings}
+                                            {item.author}
                                         </div>
                                         <div className='course-price'>
-                                            Cooking time {item.cooking_time}
+                                            {item.price}
                                         </div>
                                         <div className='course-enquire-form' onClick= {() => setTemp(item)}>
-                                            <Link className="linkk" to={`food/${item.id}`} >Tap for more details</Link>
+                                            <a className="button" href="#popup1"> Tap to Enquire </a>
                                         </div>
                                     </div>
                                 )

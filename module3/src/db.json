@@ -13,15 +13,23 @@
       "id": 2
     }
   ],
-  "foods" : [
+  "foods": [
     {
-      "id" : 1,
-      "recipe_name" : "Poha",
-      "recipe_img" : "https://i.ibb.co/nMWRvbZ/Poha.jpg",
+      "id": 1,
+      "recipe_name": "Poha",
+      "recipe_img": "https://i.ibb.co/nMWRvbZ/Poha.jpg",
       "prep_time": "05 mins",
-      "cooking_time" : "20 mins",
-      "servings" : 2,
-      "ingredients" : ["Poha", "Oil", "Onions", "Curry Leaves", "Red Chillies", "Potatoes", "Salt/Turmeric"],
+      "cooking_time": "20 mins",
+      "servings": 2,
+      "ingredients": [
+        "Poha",
+        "Oil",
+        "Onions",
+        "Curry Leaves",
+        "Red Chillies",
+        "Potatoes",
+        "Salt/Turmeric"
+      ],
       "recipe_details": [
         "Put poha in a colander and wash, not letting it soak too long in the water. Leave in the colander to drain out completely.",
         "Heat the oil and add asafoetida, mustard seeds, curry leaves and onions along with whole red chillies.",
@@ -30,16 +38,26 @@
         "Increase the heat, add salt and poha and mix well. Saute till mixed and heated through.",
         "Shut off the heat, and mix in the green chillies, lemon juice and half of the coriander.",
         "Transfer on to a serving dish, garnish with the rest of the coriander and lemon wedges and serve."
-      ] 
+      ]
     },
     {
-      "id" : 2,
-      "recipe_name" : "Dosa",
-      "recipe_img" : "https://i.ibb.co/1LcrLTK/dosa.jpg",
+      "id": 2,
+      "recipe_name": "Dosa",
+      "recipe_img": "https://i.ibb.co/1LcrLTK/dosa.jpg",
       "prep_time": "10 mins",
-      "cooking_time" : "25 mins",
-      "servings" : 2,
-      "ingredients" : ["Urad Dal", "Rice", "Oil", "Tur Dal", "Onions", "Curry Leaves", "Red Chillies", "Potatoes", "Salt/Turmeric"],
+      "cooking_time": "25 mins",
+      "servings": 2,
+      "ingredients": [
+        "Urad Dal",
+        "Rice",
+        "Oil",
+        "Tur Dal",
+        "Onions",
+        "Curry Leaves",
+        "Red Chillies",
+        "Potatoes",
+        "Salt/Turmeric"
+      ],
       "recipe_details": [
         "To make the dosa batter, soak rice, parboiled rice, urad dal, chana dal, tur dal and methi seeds in a large bowl with enough water for 4-5 hours.",
         "Soak the poha or flattened rice in one third cup of water for at least half an hour before grinding the dosa batter.",
@@ -49,7 +67,7 @@
         "Grind the roasted red chilies, roasted garlic, dalia (roasted gram dal), onion pieces, grated coconut, tamarind, sugar and salt to a fine paste. Remove to a bowl, add a tsp of oil and mix well.",
         "Drizzle oil along the edges of the dosa, drizzle melted butter or ghee all over the dosa. Cook the dosa on medium flame till the base begins to brown.",
         "Place a ladle full of potato masala on one half side of the dosa, fold the dosa over the potato filling and remove to a serving plate. Prepare dosas with rest of the dosa batter."
-      ] 
+      ]
     }
   ],
   "courses": [
@@ -90,6 +108,15 @@
       "email": "test@test.com",
       "enquiry": "hello",
       "id": 2
+    },
+    {
+      "linkedCourse": {
+        "id": 1,
+        "name": "Frontend with React"
+      },
+      "email": "testt@xya.com",
+      "enquiry": "fiornf",
+      "id": 3
     }
   ]
 }
